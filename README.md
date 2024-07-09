@@ -3,7 +3,7 @@
 
 This project aims to automate the insights gathering done in exploratory data analysis but using a crew of AI agents to work interactively with each other. When given a data description , it tried to generate questions based on the description to find some relationship between the features , answers the questions created and summarizes it. Thus providing whole data summary. 
 
-Note : For faster output, I have set the prompt ot generate only 3 questions. If you want a detailed analysis, try to modify or remove 3 in the prompt.
+Note : For faster output, I have set the prompt to generate only 3 questions. If you want a detailed analysis, try to modify or remove 3 in the prompt.
 
 ![](./images/overview.png)
 
