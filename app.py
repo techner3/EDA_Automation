@@ -1,5 +1,4 @@
 import os
-import agentops
 import pandas as pd
 import streamlit as st
 from crewai import Crew
@@ -12,11 +11,8 @@ from langchain_experimental.agents.agent_toolkits import create_pandas_dataframe
 
 load_dotenv()
 
-agentops.init(api_key=os.getenv("AGENTOPS_API_KEY"))
-
 def csv_agent(agent,query):
     return agent.invoke(query)["output"]
-
 
 def main():
     
@@ -31,7 +27,7 @@ def main():
 
         llm = ChatGroq(temperature=0,model="Llama3-70b-8192",api_key=os.getenv("GROQ_API_KEY"))
         df = pd.read_csv(uploaded_file)
-        agent=create_pandas_dataframe_agent(llm, df, verbose=False)
+        agent=create_pandas_dataframe_agent(llm, df, verbose=False,allow_dangerous_code=True)
         csv_tool = StructuredTool.from_function(func=lambda input: csv_agent(agent,input),name='Data Agent',
                                               description='This function will help you to answer any questions related to the data with input passed to it')
 
@@ -52,7 +48,6 @@ def main():
         response = crew.kickoff(inputs=({"context": data_description}))
 
         st.write(response)
-        agentops.end_session("Success")
 
 if __name__ == "__main__":
     main()

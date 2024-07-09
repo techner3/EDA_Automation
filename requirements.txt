@@ -1,6 +1,5 @@
 crewai
 pandas
-agentops
 tabulate 
 langchain 
 streamlit
@@ -9,3 +8,5 @@ python-dotenv
 langchain-core 
 langchain-groq 
 langchain-experimental
+
+-e .
