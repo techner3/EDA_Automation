@@ -1,0 +1,11 @@
+crewai
+pandas
+agentops
+tabulate 
+langchain 
+streamlit
+matplotlib
+python-dotenv
+langchain-core 
+langchain-groq 
+langchain-experimental
